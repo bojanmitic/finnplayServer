@@ -1,13 +1,12 @@
-import express from 'express';
+import http from 'http';
+import { app } from './app';
+import { NODE_ENV, PORT } from './utils/config';
+import { logger } from './utils/logger';
 
-const app = express();
+const server = http.createServer(app);
 
-const port = 3001;
-
-app.get('/', (req, res) => {
-  res.send('Hello, there');
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+(() => {
+  server.listen(PORT, () => {
+    logger.info(`Server is listening to port ${PORT}, in env: ${NODE_ENV}`);
+  });
+})();
