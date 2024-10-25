@@ -5,7 +5,7 @@ const app = express()
 const port = 3001
 
 app.get('/', (req, res) => {
-  res.send('Hello, TypeScript + Node.js + Express!')
+  res.send('Hello, there')
 })
 
 app.listen(port, () => {
