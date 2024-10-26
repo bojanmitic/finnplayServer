@@ -13,7 +13,7 @@ export const seedData = () =>
 
     const newData = JSON.parse(data);
 
-    games.push(newData?.games);
-    groups.push(newData.groups);
-    providers.push(newData.providers);
+    games.push(...newData?.games);
+    groups.push(...newData.groups);
+    providers.push(...newData.providers);
   });
