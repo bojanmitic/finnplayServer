@@ -10,7 +10,7 @@ export const authenticateUser = (username: string, password: string) => {
   return { ...user };
 };
 
-export const logoutUser = async (session: Session & Partial<SessionData>) => {
+export const logoutUser = (session: Session & Partial<SessionData>) => {
   if (!session) {
     throw new BadRequestError('Unable to log out, session not found');
   }

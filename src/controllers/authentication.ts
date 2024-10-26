@@ -1,5 +1,5 @@
 import express from 'express';
-import { UnauthorizedError } from '../errors';
+import { BadRequestError, UnauthorizedError } from '../errors';
 import { authenticateUser, logoutUser } from '../services/authentication';
 
 const authenticationRouter = express.Router();
@@ -21,12 +21,12 @@ authenticationRouter.post('/login', (req, res, next) => {
   }
 });
 
-authenticationRouter.delete('/logout', async (req, res, next) => {
-  try {
-    await logoutUser(req.session);
+authenticationRouter.delete('/logout', (req, res, next) => {
+  if (req.session) {
+    logoutUser(req.session);
     res.json({ message: 'Logout successful' });
-  } catch (error) {
-    next(error);
+  } else {
+    next(new BadRequestError('Session not found'));
   }
 });
 
