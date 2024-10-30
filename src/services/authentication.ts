@@ -7,7 +7,7 @@ export const authenticateUser = (username: string, password: string) => {
   if (!user) {
     throw new UnauthorizedError("Can't log in user");
   }
-  return { ...user };
+  return { user: user.userName };
 };
 
 export const logoutUser = (session: Session & Partial<SessionData>) => {
