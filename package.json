@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "Finnplay games app",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.8.0",
     "nodemon": "^3.1.7",
@@ -22,6 +23,7 @@
     "@types/express-session": "^1.18.0",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
     "bs-logger": "^0.2.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
